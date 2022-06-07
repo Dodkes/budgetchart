@@ -1,0 +1,140 @@
+*{
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+input:hover, input:focus{
+  background-color: rgba(255, 222, 173,0.5);
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  gap: 10px 40px;
+  width: 100%;
+}
+
+::placeholder{
+  text-align: center;
+  font-size: 1.5rem;
+  color: aliceblue;
+  text-shadow: 2px 2px 2px black;
+}
+
+:hover::placeholder, :focus::placeholder{
+  color: black;
+  text-shadow: 2px 2px 2px grey;
+}
+
+.salary{
+  font-size: 2rem;
+  width: 10%;
+}
+
+.home-icon{
+  font-size: 3rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.firstCircle{
+  display: none;
+  position: absolute;
+  top: -16vh;
+  left: -15vh;
+  z-index: -1;
+  padding: 500px;
+  border-radius: 100%;
+  background-color: blueviolet;
+
+  box-shadow: 2px 2px 5px black;
+}
+
+.secondCircle{
+  display: none;
+  position: absolute;
+  top: -50vh;
+  right: 0;
+  z-index: -2;
+  padding: 500px;
+  border-radius: 100%;
+  background-color: aqua;
+  box-shadow: -2px 2px 5px black;
+}
+
+input{
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  font-size: 3rem;
+  transition: 250ms;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 10px black;
+  outline: none;
+}
+
+.inputName{
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 10px black;
+  border-radius: 5px 5px 0 0;
+  padding-top: 1vh;
+}
+
+.jqueryContainer{
+  display: none;
+  margin-top: 1rem;
+}
+/*INCOME ALIGN*/
+.incomeContainer{
+  box-shadow: none;
+  display: none;
+  margin: auto;
+  position: relative;
+  top: 10px;
+  width: 20%;
+}
+
+.salary{
+  width: 100%;
+}
+
+.home-icon, .puzzle-icon, .transport-icon{
+  border-radius: 20%;
+  background-color: black;
+  font-size: 50px;
+  box-shadow: 2px 2px 10px black;
+}
+
+.grid-item{
+  margin: auto;
+}
+
+.icon-container{
+  margin: auto;
+  position: relative;
+}
+
+::selection{
+  background-color: wheat;
+  color: black;
+  text-shadow: none;
+}
+
+input::-webkit-inner-spin-button { /*hide number input arrows*/
+  -webkit-appearance: none;
+}
+
+body{
+  background-color: white;
+}

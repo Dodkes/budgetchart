@@ -1,0 +1,129 @@
+
+@media (max-width: 1850px){
+    .firstCircle{
+        padding: 400px;
+        top: -15vh;
+        left: -10vh;
+    }
+    .secondCircle{
+        padding: 400px;
+        top: -40vh;
+        right: 0;
+    }
+    input{
+        font-size: 2rem;
+    }
+    .incomeContainer{
+        width: 20%;
+    }
+}
+
+@media (max-width: 1480px){
+    .firstCircle{
+        padding: 350px;
+        top: -13vh;
+        left: -9vh;
+    }
+    .secondCircle{
+        padding: 350px;
+        top: -35vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }
+}
+
+@media (max-width: 1300px){
+    .firstCircle{
+        padding: 300px;
+        top: -10vh;
+        left: -9vh;
+    }
+    .secondCircle{
+        padding: 300px;
+        top: -30vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }
+}
+
+@media (max-width: 1080px){
+    .firstCircle{
+        padding: 250px;
+        top: -10vh;
+        left: -9vh;
+    }
+    .secondCircle{
+        padding: 250px;
+        top: -25vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }  
+}
+
+@media (max-width: 900px){
+    .inputName{
+        font-size: 0.7rem;
+    }
+
+    .firstCircle{
+        padding: 200px;
+        top: -10vh;
+        left: -9vh;
+    }
+    .secondCircle{
+        padding: 200px;
+        top: -20vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }  
+}
+
+@media (max-width: 720px){
+    .firstCircle{
+        padding: 150px;
+        top: -10vh;
+        left: -9vh;
+    }
+    .secondCircle{
+        padding: 150px;
+        top: -12vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }  
+}
+
+@media (max-width: 600px){
+    .firstCircle{
+        padding: 200px;
+        top: -10vh;
+        left: -5vh;
+        opacity: 0.5;
+
+    }
+    .secondCircle{
+        padding: 150px;
+        top: -11vh;
+        right: 0;
+    }
+    .incomeContainer{
+        width: 20%;
+    }
+}
+
+@media (max-width: 480px){
+
+}
+
+@media (max-width: 320px){
+
+}

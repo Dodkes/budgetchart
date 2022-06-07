@@ -1,0 +1,9 @@
+.color{
+    color: salmon;
+    text-shadow: 2px 2px 2px black;
+}
+
+.chartwidth{
+    width: 50vh;
+    margin: auto;
+}
