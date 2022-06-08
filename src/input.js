@@ -1,8 +1,28 @@
 import { FcHome } from "react-icons/fc"; //define icon here, then add a component
 import { FcPuzzle } from "react-icons/fc";
 import { FcInTransit } from "react-icons/fc";
+import { useState } from 'react';
+
+let chartData = [0, 0, 0]
+let myData
+const labelData = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 
+'savings / investings / mortgage', 'grocery', 'other living costs', 'public transport', 'fuel', 
+'car maintenance / leasing', 'other transport costs', 'bars / restaurants / cafes',
+'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs']
 
 function InputItem(props){
+    const [data, setData] = useState({
+        labels: labelData,
+        datasets: [{
+                data: chartData,
+                backgroundColor: ['blueviolet','aqua'],
+                borderColor: 'black',
+                borderWidth: 1,
+            }],
+    })
+
+    myData = data
+
     function handleChange(event){ //zadame argument event
         switch(event.target.id){
             case 'rental': chartData[0] = parseInt(event.target.value)
@@ -39,6 +59,17 @@ function InputItem(props){
                 break;
             default:;
         }
+        setData({
+            labels: labelData,
+            datasets: [{
+                    data: chartData,
+                    backgroundColor: ['blueviolet','aqua'],
+                    borderColor: 'black',
+                    borderWidth: 1,
+                }],
+        })
+        myData = data
+        console.log(myData)
     }
     
     return(
@@ -85,7 +116,7 @@ function Input(){
     )
 }
 
-export let chartData = [0, 0, 0]
+export { myData }
 export default Input
 
 //chartjs dynamic data pozriet
