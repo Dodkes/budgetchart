@@ -40,7 +40,7 @@ function InputItem(props){
             default:;
         }
     }
-
+    
     return(
         <label className='grid-item' title={props.title}>
                 <div className="inputName">{props.title}</div>
@@ -85,7 +85,7 @@ function Input(){
     )
 }
 
-export let chartData = [10, 10, 10]
+export let chartData = [0, 0, 0]
 export default Input
 
 //chartjs dynamic data pozriet
