@@ -1,9 +1,17 @@
 import { FcHome } from "react-icons/fc"; //define icon here, then add a component
 import { FcPuzzle } from "react-icons/fc";
 import { FcInTransit } from "react-icons/fc";
+import DoughnutChart from './chart'
+import {useState} from 'react'
+
+export let chartData = [0, 0, 0]
+export const labelData = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 
+'savings / investings / mortgage', 'grocery', 'other living costs', 'public transport', 'fuel', 
+'car maintenance / leasing', 'other transport costs', 'bars / restaurants / cafes',
+'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs']
 
 function InputItem(props){
-    function handleChange(event){ //zadame argument event
+    function handleChange(event){
         switch(event.target.id){
             case 'rental': chartData[0] = parseInt(event.target.value)
                 break;
@@ -39,6 +47,7 @@ function InputItem(props){
                 break;
             default:;
         }
+        props.myFunc()
     }
     
     return(
@@ -50,6 +59,29 @@ function InputItem(props){
 }
 
 function Input(){
+    const [data, setData] = useState({
+        labels: labelData,
+        datasets: [{
+                data: chartData,
+                backgroundColor: ['blueviolet','aqua'],
+                borderColor: 'black',
+                borderWidth: 1,
+            }],
+    })
+
+    const updateChartData = () => {
+        setData({
+            labels: labelData,
+            datasets: [{
+                    data: chartData,
+                    backgroundColor: ['blueviolet','aqua'],
+                    borderColor: 'black',
+                    borderWidth: 1,
+                }],
+        })
+        console.log(data)
+    }
+
     return(
         <div className="jqueryContainer">
             <form className="grid-container">
@@ -62,30 +94,28 @@ function Input(){
                 <div className="icon-container">
                     <FcPuzzle className="puzzle-icon" />
                 </div>
-                <InputItem title='rental' />
-                <InputItem title='public transport' />
-                <InputItem title='bars / restaurants / cafes' />
-                <InputItem title='TV / phone / internet' />
-                <InputItem title='fuel' />
-                <InputItem title='hairdresser / cosmetics' />
-                <InputItem title='maintenance / house modernisation' />
-                <InputItem title='car maintenance / leasing' />
-                <InputItem title='wellness / self care' />
-                <InputItem title='savings / investings / mortgage' />
-                <InputItem title='other transport costs' />
-                <InputItem title='doctor / medicine' />
-                <InputItem title='grocery' />
+                <InputItem title='rental' myFunc={updateChartData}/>
+                <InputItem title='public transport' myFunc={updateChartData}/>
+                <InputItem title='bars / restaurants / cafes' myFunc={updateChartData}/>
+                <InputItem title='TV / phone / internet' myFunc={updateChartData}/>
+                <InputItem title='fuel' myFunc={updateChartData}/>
+                <InputItem title='hairdresser / cosmetics' myFunc={updateChartData}/>
+                <InputItem title='maintenance / house modernisation' myFunc={updateChartData}/>
+                <InputItem title='car maintenance / leasing' myFunc={updateChartData}/>
+                <InputItem title='wellness / self care' myFunc={updateChartData}/>
+                <InputItem title='savings / investings / mortgage' myFunc={updateChartData}/>
+                <InputItem title='other transport costs' myFunc={updateChartData}/>
+                <InputItem title='doctor / medicine' myFunc={updateChartData}/>
+                <InputItem title='grocery' myFunc={updateChartData}/>
                 <p></p>{/* emty element for grid space*/}
-                <InputItem title='sport' />
-                <InputItem title='other living costs' />
+                <InputItem title='sport' myFunc={updateChartData}/>
+                <InputItem title='other living costs' myFunc={updateChartData}/>
                 <p></p>{/* emty element for grid space*/}
-                <InputItem title='other hobby costs' />
+                <InputItem title='other hobby costs' myFunc={updateChartData} />
             </form>
+            <DoughnutChart data={data}/>
         </div>
     )
 }
 
-export let chartData = [0, 0, 0]
 export default Input
-
-//chartjs dynamic data pozriet
