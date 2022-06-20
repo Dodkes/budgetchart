@@ -1,7 +1,6 @@
 import Input from './input'
 import Income from './income'
 import Circles from './circles'
-//import ChartComponent from './chart'
 import $ from 'jquery' //import jquery
 
 $(()=>{ //on document ready

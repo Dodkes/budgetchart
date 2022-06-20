@@ -8,13 +8,18 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 function DoughnutChart(props){
 
     return(            
-        <div>
+    <div className={styles.chartContainer}>
         <h1 className={styles.color}>Doughnut Chart - unanimated</h1>
         <div className={styles.chartwidth}>
-            <Doughnut data={props.data} />
+            <Doughnut data={props.dataLiving} />
+        </div>
+        <div className={styles.chartwidth}>
+            <Doughnut data={props.dataTransport} />
+        </div>
+        <div className={styles.chartwidth}>
+            <Doughnut data={props.dataHobby} />
         </div>
     </div>
-
     )
 }
 

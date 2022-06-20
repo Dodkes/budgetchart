@@ -4,46 +4,47 @@ import { FcInTransit } from "react-icons/fc";
 import DoughnutChart from './chart'
 import {useState} from 'react'
 
-export let chartData = [0, 0, 0]
-export const labelData = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 
-'savings / investings / mortgage', 'grocery', 'other living costs', 'public transport', 'fuel', 
-'car maintenance / leasing', 'other transport costs', 'bars / restaurants / cafes',
-'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs']
+let livingData = []
+let transportData = []
+let hobbyData = []
+const livingLabels = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 'savings / investings / mortgage', 'grocery', 'other living costs' ]
+const transportLabels = ['public transport', 'fuel', 'car maintenance / leasing', 'other transport costs']
+const hobbyLabels = ['bars / restaurants / cafes', 'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs']
 
 function InputItem(props){
     function handleChange(event){
         switch(event.target.id){
-            case 'rental': chartData[0] = parseInt(event.target.value)
+            case 'rental': livingData[0] = parseInt(event.target.value)
                 break;
-            case 'TV / phone / internet': chartData[1] = parseInt(event.target.value)
+            case 'TV / phone / internet': livingData[1] = parseInt(event.target.value)
                 break;
-            case 'maintenance / house modernisation': chartData[2] = parseInt(event.target.value)
+            case 'maintenance / house modernisation': livingData[2] = parseInt(event.target.value)
                 break;
-            case 'savings / investings / mortgage': chartData[3] = parseInt(event.target.value)
+            case 'savings / investings / mortgage': livingData[3] = parseInt(event.target.value)
                 break;
-            case 'grocery': chartData[4] = parseInt(event.target.value)
+            case 'grocery': livingData[4] = parseInt(event.target.value)
                 break;
-            case 'other living costs': chartData[5] = parseInt(event.target.value)
+            case 'other living costs': livingData[5] = parseInt(event.target.value)
                 break;
-            case 'public transport': chartData[6] = parseInt(event.target.value)
+            case 'public transport': transportData[0] = parseInt(event.target.value)
                 break;
-            case 'fuel': chartData[7] = parseInt(event.target.value)
+            case 'fuel': transportData[1] = parseInt(event.target.value)
                 break;
-            case 'car maintenance / leasing': chartData[8] = parseInt(event.target.value)
+            case 'car maintenance / leasing': transportData[2] = parseInt(event.target.value)
                 break;
-            case 'other transport costs': chartData[9] = parseInt(event.target.value)
+            case 'other transport costs': transportData[3] = parseInt(event.target.value)
                 break;
-            case 'bars / restaurants / cafes': chartData[10] = parseInt(event.target.value)
+            case 'bars / restaurants / cafes': hobbyData[0] = parseInt(event.target.value)
                 break;
-            case 'hairdresser / cosmetics': chartData[11] = parseInt(event.target.value)
+            case 'hairdresser / cosmetics': hobbyData[1] = parseInt(event.target.value)
                 break;
-            case 'wellness / self care': chartData[12] = parseInt(event.target.value)
+            case 'wellness / self care': hobbyData[2] = parseInt(event.target.value)
                 break;
-            case 'doctor / medicine': chartData[13] = parseInt(event.target.value)
+            case 'doctor / medicine': hobbyData[3] = parseInt(event.target.value)
                 break;
-            case 'sport': chartData[14] = parseInt(event.target.value)
+            case 'sport': hobbyData[4] = parseInt(event.target.value)
                 break;
-            case 'other hobby costs': chartData[15] = parseInt(event.target.value)
+            case 'other hobby costs': hobbyData[5] = parseInt(event.target.value)
                 break;
             default:;
         }
@@ -59,27 +60,50 @@ function InputItem(props){
 }
 
 function Input(){
-    const [data, setData] = useState({
-        labels: labelData,
+    const [dataLiving, setDataLiving] = useState({
+        labels: livingLabels,
         datasets: [{
-                data: chartData,
+                data: livingData,
                 backgroundColor: ['blueviolet','aqua'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],
     })
 
-    const updateChartData = () => {
-        setData({
-            labels: labelData,
-            datasets: [{
-                    data: chartData,
-                    backgroundColor: ['blueviolet','aqua'],
-                    borderColor: 'black',
-                    borderWidth: 1,
-                }],
+    const [dataTransport, setDataTransport] = useState({
+        labels: transportLabels,
+        datasets: [{
+                data: livingData,
+                backgroundColor: ['blueviolet','aqua'],
+                borderColor: 'black',
+                borderWidth: 1,
+            }],
+    })
+
+    const [dataHobby, setDataHobby] = useState({
+        labels: hobbyLabels,
+        datasets: [{
+                data: livingData,
+                backgroundColor: ['blueviolet','aqua'],
+                borderColor: 'black',
+                borderWidth: 1,
+            }],
+    })
+
+    const updateChart = () => {
+        setDataLiving({
+            labels: livingLabels,
+            datasets: [{data: livingData}],
         })
-        console.log(data)
+
+        setDataTransport({
+            labels: transportLabels,
+            datasets: [{data: transportData}],
+        })
+        setDataHobby({
+            labels: hobbyLabels,
+            datasets: [{data: hobbyData}],
+        })
     }
 
     return(
@@ -94,26 +118,26 @@ function Input(){
                 <div className="icon-container">
                     <FcPuzzle className="puzzle-icon" />
                 </div>
-                <InputItem title='rental' myFunc={updateChartData}/>
-                <InputItem title='public transport' myFunc={updateChartData}/>
-                <InputItem title='bars / restaurants / cafes' myFunc={updateChartData}/>
-                <InputItem title='TV / phone / internet' myFunc={updateChartData}/>
-                <InputItem title='fuel' myFunc={updateChartData}/>
-                <InputItem title='hairdresser / cosmetics' myFunc={updateChartData}/>
-                <InputItem title='maintenance / house modernisation' myFunc={updateChartData}/>
-                <InputItem title='car maintenance / leasing' myFunc={updateChartData}/>
-                <InputItem title='wellness / self care' myFunc={updateChartData}/>
-                <InputItem title='savings / investings / mortgage' myFunc={updateChartData}/>
-                <InputItem title='other transport costs' myFunc={updateChartData}/>
-                <InputItem title='doctor / medicine' myFunc={updateChartData}/>
-                <InputItem title='grocery' myFunc={updateChartData}/>
+                <InputItem title='rental' myFunc={updateChart}/>
+                <InputItem title='public transport' myFunc={updateChart}/>
+                <InputItem title='bars / restaurants / cafes' myFunc={updateChart}/>
+                <InputItem title='TV / phone / internet' myFunc={updateChart}/>
+                <InputItem title='fuel' myFunc={updateChart}/>
+                <InputItem title='hairdresser / cosmetics' myFunc={updateChart}/>
+                <InputItem title='maintenance / house modernisation' myFunc={updateChart}/>
+                <InputItem title='car maintenance / leasing' myFunc={updateChart}/>
+                <InputItem title='wellness / self care' myFunc={updateChart}/>
+                <InputItem title='savings / investings / mortgage' myFunc={updateChart}/>
+                <InputItem title='other transport costs' myFunc={updateChart}/>
+                <InputItem title='doctor / medicine' myFunc={updateChart}/>
+                <InputItem title='grocery' myFunc={updateChart}/>
                 <p></p>{/* emty element for grid space*/}
-                <InputItem title='sport' myFunc={updateChartData}/>
-                <InputItem title='other living costs' myFunc={updateChartData}/>
+                <InputItem title='sport' myFunc={updateChart}/>
+                <InputItem title='other living costs' myFunc={updateChart}/>
                 <p></p>{/* emty element for grid space*/}
-                <InputItem title='other hobby costs' myFunc={updateChartData} />
+                <InputItem title='other hobby costs' myFunc={updateChart} />
             </form>
-            <DoughnutChart data={data}/>
+            <DoughnutChart dataLiving={dataLiving} dataTransport={dataTransport} dataHobby={dataHobby}/>
         </div>
     )
 }
