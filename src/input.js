@@ -64,7 +64,7 @@ function Input(){
         labels: livingLabels,
         datasets: [{
                 data: livingData,
-                backgroundColor: ['blueviolet','aqua'],
+                backgroundColor: ['#8A2BE2','#bf8aef', '#e2caf8', '#f2ffff', '#b2ffff', '#00FFFF'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],
@@ -73,8 +73,8 @@ function Input(){
     const [dataTransport, setDataTransport] = useState({
         labels: transportLabels,
         datasets: [{
-                data: livingData,
-                backgroundColor: ['blueviolet','aqua'],
+                data: transportData,
+                backgroundColor: ['#8A2BE2','#bf8aef', '#b2ffff', '#00FFFF'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],
@@ -83,8 +83,8 @@ function Input(){
     const [dataHobby, setDataHobby] = useState({
         labels: hobbyLabels,
         datasets: [{
-                data: livingData,
-                backgroundColor: ['blueviolet','aqua'],
+                data: hobbyData,
+                backgroundColor: ['#8A2BE2','#bf8aef', '#e2caf8', '#f2ffff', '#b2ffff', '#00FFFF'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],

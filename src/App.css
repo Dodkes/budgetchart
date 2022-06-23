@@ -138,3 +138,14 @@ input::-webkit-inner-spin-button { /*hide number input arrows*/
 body{
   background-color: white;
 }
+
+.legend{
+  text-align: left;
+  list-style-type: none;
+}
+
+span{
+  padding: 0 5px 0 5px;
+  margin-right: 5px;
+  border: 1px solid black;
+}

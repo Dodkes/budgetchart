@@ -10,7 +10,37 @@
 
 .chartwidth{
     width: 40vh;
-    margin: auto;
-    margin: 20px;
+    margin: 0 12vh 0 12vh;
     display: inline-block;
+}
+
+
+.firstLabel{
+    background-color: #8A2BE2;
+    color: #8A2BE2;
+}
+
+.secondLabel{
+    background-color: #c89af1;
+    color: #c89af1;
+}
+
+.thirdLabel{
+    background-color: #e2caf8;
+    color: #e2caf8;
+}
+
+.fourthLabel{
+    background-color: #f2ffff;
+    color: #f2ffff;
+}
+
+.fifthLabel{
+    background-color: #b2ffff;
+    color: #b2ffff;
+}
+
+.sixthLabel{
+    background-color: #00FFFF;
+    color: #00FFFF;
 }
