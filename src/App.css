@@ -92,17 +92,18 @@ input{
 }
 
 .jqueryContainer{
+  position: absolute;
   display: none;
   margin-top: 1rem;
 }
-/*INCOME ALIGN*/
-.incomeContainer{
-  box-shadow: none;
-  display: none;
-  margin: auto;
+
+.income{
+  margin-top: 3rem;
   position: relative;
-  top: 10px;
-  width: 20%;
+  transform: translate(-50%, -50%);
+  width: 10rem;
+  left: 50%;
+  top: 0;
 }
 
 .salary{

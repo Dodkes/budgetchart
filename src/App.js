@@ -1,5 +1,4 @@
 import Input from './input'
-import Income from './income'
 import Circles from './circles'
 import $ from 'jquery' //import jquery
 
@@ -13,7 +12,6 @@ function App() {
   return(
     <>
     <Circles />
-    <Income />
     <Input />
     </>
   )
