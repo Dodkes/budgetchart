@@ -17,3 +17,6 @@
 // }
 
 // export default Income
+
+//PROBLEMY
+//Ak najprv zadam naklady a potom income tak mi zblbne graf ak je income nizsi ako naklady

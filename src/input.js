@@ -5,7 +5,8 @@ import DoughnutChart from './chart'
 import {useState} from 'react'
 
 let livingData = [0, 0, 0, 0 ,0 ,0, 0]
-//let livingCosts = 0
+let livingCosts = 0
+let income
 let transportData = [0]
 let hobbyData = [0]
 const livingLabels = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 'savings / investings / mortgage', 'grocery', 'other living costs', 'income' ]
@@ -15,58 +16,69 @@ const hobbyLabels = ['bars / restaurants / cafes', 'hairdresser / cosmetics', 'w
 function InputItem(props){
     function handleChange(event){
 
+        let activeInput
+        if (event.target.value === '') {
+            activeInput = 0
+        } else {
+            activeInput = event.target.value
+        }
 
         switch(event.target.id){
-            case 'rental': livingData[0] = parseInt(event.target.value)
+            case 'rental': livingData[0] = parseInt(activeInput) 
                 break;
-            case 'TV / phone / internet': livingData[1] = parseInt(event.target.value)
+            case 'TV / phone / internet': livingData[1] = parseInt(activeInput)
                 break;
-            case 'maintenance / house modernisation': livingData[2] = parseInt(event.target.value)
+            case 'maintenance / house modernisation': livingData[2] = parseInt(activeInput)
                 break;
-            case 'savings / investings / mortgage': livingData[3] = parseInt(event.target.value)
+            case 'savings / investings / mortgage': livingData[3] = parseInt(activeInput)
                 break;
-            case 'grocery': livingData[4] = parseInt(event.target.value)
+            case 'grocery': livingData[4] = parseInt(activeInput)
                 break;
-            case 'other living costs': livingData[5] = parseInt(event.target.value)
+            case 'other living costs': livingData[5] = parseInt(activeInput)
                 break;
-            case 'public transport': transportData[0] = parseInt(event.target.value)
+            case 'public transport': transportData[0] = parseInt(activeInput)
                 break;
-            case 'fuel': transportData[1] = parseInt(event.target.value)
+            case 'fuel': transportData[1] = parseInt(activeInput)
                 break;
-            case 'car maintenance / leasing': transportData[2] = parseInt(event.target.value)
+            case 'car maintenance / leasing': transportData[2] = parseInt(activeInput)
                 break;
-            case 'other transport costs': transportData[3] = parseInt(event.target.value)
+            case 'other transport costs': transportData[3] = parseInt(activeInput)
                 break;
-            case 'bars / restaurants / cafes': hobbyData[0] = parseInt(event.target.value)
+            case 'bars / restaurants / cafes': hobbyData[0] = parseInt(activeInput)
                 break;
-            case 'hairdresser / cosmetics': hobbyData[1] = parseInt(event.target.value)
+            case 'hairdresser / cosmetics': hobbyData[1] = parseInt(activeInput)
                 break;
-            case 'wellness / self care': hobbyData[2] = parseInt(event.target.value)
+            case 'wellness / self care': hobbyData[2] = parseInt(activeInput)
                 break;
-            case 'doctor / medicine': hobbyData[3] = parseInt(event.target.value)
+            case 'doctor / medicine': hobbyData[3] = parseInt(activeInput)
                 break;
-            case 'sport': hobbyData[4] = parseInt(event.target.value)
+            case 'sport': hobbyData[4] = parseInt(activeInput)
                 break;
-            case 'other hobby costs': hobbyData[5] = parseInt(event.target.value)
+            case 'other hobby costs': hobbyData[5] = parseInt(activeInput)
                 break;
-            case 'Income':  livingData[6] = parseInt(event.target.value)
-                            hobbyData[6] = parseInt(event.target.value) 
-                            transportData[4] = parseInt(event.target.value)
+            case 'Income': income = parseInt(activeInput)
                 break;
             default:;
+        }      
+
+
+        updateCosts()
+
+        function updateCosts() {
+        livingCosts = 0
+        for (let i = 0; i < livingData.length - 1; i++) {
+                livingCosts += livingData[i]
         }
-    //     updateCosts()
 
-    //     function updateCosts() {
-    //     livingCosts = 0
-    //     for (let i = 0; i < livingData.length - 1; i++) {
-    //         livingCosts += livingData[i]
-    //     }
-
-    //     console.log('livingData[6] su o 1 pozadu a su ' + livingData[6])
-    //     let x = livingData[6] - livingCosts
-    //     livingData[6] = x
-    // }
+        console.log('naklady '+livingCosts)
+        console.log('prijem '+income)
+        
+        if (livingCosts > income){
+            livingData[6] = 0
+        } else {
+            livingData[6] = income - livingCosts
+        }
+    }
         props.myFunc()
     }
     
