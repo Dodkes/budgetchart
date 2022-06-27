@@ -4,11 +4,13 @@ import { FcInTransit } from "react-icons/fc";
 import DoughnutChart from './chart'
 import {useState} from 'react'
 
-let livingData = [0, 0, 0, 0 ,0 ,0, 0]
+let livingData = [0, 0, 0, 0, 0, 0, 0]
+let transportData = [0, 0, 0, 0, 0]
+let hobbyData = [0, 0, 0, 0, 0 ,0 , 0]
 let livingCosts = 0
+let transportCosts = 0
+let hobbyCosts = 0
 let income
-let transportData = [0]
-let hobbyData = [0]
 const livingLabels = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 'savings / investings / mortgage', 'grocery', 'other living costs', 'income' ]
 const transportLabels = ['public transport', 'fuel', 'car maintenance / leasing', 'other transport costs', 'income']
 const hobbyLabels = ['bars / restaurants / cafes', 'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs', 'income']
@@ -17,7 +19,7 @@ function InputItem(props){
     function handleChange(event){
 
         let activeInput
-        if (event.target.value === '') {
+        if (event.target.value === '' || event.target.value < 0) {
             activeInput = 0
         } else {
             activeInput = event.target.value
@@ -66,12 +68,30 @@ function InputItem(props){
 
         function updateCosts() {
         livingCosts = 0
+        hobbyCosts = 0
+        transportCosts = 0
+
         for (let i = 0; i < livingData.length - 1; i++) {
                 livingCosts += livingData[i]
+                hobbyCosts += hobbyData[i]
         }
 
-        console.log('naklady '+livingCosts)
-        console.log('prijem '+income)
+        for (let i = 0; i < transportData.length - 1; i++) {
+            transportCosts += transportData[i]
+        }
+
+        if (transportCosts > income) {
+            transportData[4] = 0
+        } else {
+            transportData[4] = income - transportCosts
+        }
+
+        if (hobbyCosts > income) {
+            hobbyData[6] = 0
+        } else {
+            hobbyData[6] = income - hobbyCosts
+        }
+
         
         if (livingCosts > income){
             livingData[6] = 0
@@ -95,7 +115,7 @@ function Input(){
         labels: livingLabels,
         datasets: [{
                 data: livingData,
-                backgroundColor: ['#8A2BE2','#bf8aef', '#e2caf8', '#f2ffff', '#b2ffff', '#00FFFF', '#000000'],
+                backgroundColor: ['#00FFFF','#b2ffff', '#f2ffff', '#e2caf8', '#bf8aef', '#8A2BE2', '#333333'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],
@@ -105,7 +125,7 @@ function Input(){
         labels: transportLabels,
         datasets: [{
                 data: transportData,
-                backgroundColor: ['#8A2BE2','#bf8aef', '#b2ffff', '#00FFFF', '#000000'],
+                backgroundColor: ['#00FFFF','#b2ffff', '#bf8aef', '#8A2BE2', '#333333'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],
@@ -115,7 +135,7 @@ function Input(){
         labels: hobbyLabels,
         datasets: [{
                 data: hobbyData,
-                backgroundColor: ['#8A2BE2','#bf8aef', '#e2caf8', '#f2ffff', '#b2ffff', '#00FFFF', '#000000'],
+                backgroundColor: ['#00FFFF','#b2ffff', '#f2ffff', '#e2caf8', '#bf8aef', '#8A2BE2', '#333333'],
                 borderColor: 'black',
                 borderWidth: 1,
             }],

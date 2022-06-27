@@ -4,6 +4,7 @@
 }
 
 .chartContainer{
+    margin-top: 2%;
     width: 100%;
     text-align: center;
 }
@@ -16,31 +17,36 @@
 
 
 .firstLabel{
-    background-color: #8A2BE2;
-    color: #8A2BE2;
+    background-color: #00FFFF;
+    color: #00FFFF;
 }
 
 .secondLabel{
-    background-color: #c89af1;
-    color: #c89af1;
-}
-
-.thirdLabel{
-    background-color: #e2caf8;
-    color: #e2caf8;
-}
-
-.fourthLabel{
-    background-color: #f2ffff;
-    color: #f2ffff;
-}
-
-.fifthLabel{
     background-color: #b2ffff;
     color: #b2ffff;
 }
 
+.thirdLabel{
+    background-color: #f2ffff;
+    color: #f2ffff;
+}
+
+.fourthLabel{
+    background-color: #e2caf8;
+    color: #e2caf8;
+}
+
+.fifthLabel{
+    background-color: #c89af1;
+    color: #c89af1;
+}
+
 .sixthLabel{
-    background-color: #00FFFF;
-    color: #00FFFF;
+    background-color: #8A2BE2;
+    color: #8A2BE2;
+}
+
+.incomeLabel {
+    background-color: #333333;
+    color: #333333;
 }

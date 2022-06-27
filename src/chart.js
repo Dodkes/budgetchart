@@ -19,6 +19,7 @@ function DoughnutChart(props){
                     <li><span className={styles.fourthLabel}>X</span>savings / investings / mortgage</li>
                     <li><span className={styles.fifthLabel}>X</span>grocery</li>
                     <li><span className={styles.sixthLabel}>X</span>other living costs</li>
+                    <li><span className={styles.incomeLabel}>X</span>Income</li>
                 </ul>
         </div>
         <div className={styles.chartwidth}>
@@ -28,6 +29,7 @@ function DoughnutChart(props){
                     <li><span className={styles.secondLabel}>X</span>fuel</li>
                     <li><span className={styles.fifthLabel}>X</span>car maintenance / leasing</li>
                     <li><span className={styles.sixthLabel}>X</span>other transport costs</li>
+                    <li><span className={styles.incomeLabel}>X</span>Income</li>
                 </ul>
         </div>
         <div className={styles.chartwidth}>
@@ -39,6 +41,7 @@ function DoughnutChart(props){
                     <li><span className={styles.fourthLabel}>X</span>doctor / medicine</li>
                     <li><span className={styles.fifthLabel}>X</span>sport</li>
                     <li><span className={styles.sixthLabel}>X</span>other hobby costs</li>
+                    <li><span className={styles.incomeLabel}>X</span>Income</li>
                 </ul>
         </div>
     </div>
