@@ -1,5 +1,5 @@
 import styles from './chart.module.css'
-
+import { livingLabels, transportLabels, hobbyLabels } from './input';
 //CHART IMPORTS
 import { Doughnut } from 'react-chartjs-2'; //import Doughnut component
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'; //po novom musime importovat a nizsie registrovat tieto veci
@@ -13,35 +13,35 @@ function DoughnutChart(props){
         <div className={styles.chartwidth}>
             <Doughnut data={props.dataLiving} />
                 <ul className='legend'>
-                    <li><span className={styles.firstLabel}>X</span>rental</li>
-                    <li><span className={styles.secondLabel}>X</span>TV / phone / internet</li>
-                    <li><span className={styles.thirdLabel}>X</span>maintenance / house modernisation</li>
-                    <li><span className={styles.fourthLabel}>X</span>savings / investings / mortgage</li>
-                    <li><span className={styles.fifthLabel}>X</span>grocery</li>
-                    <li><span className={styles.sixthLabel}>X</span>other living costs</li>
-                    <li><span className={styles.incomeLabel}>X</span>Income</li>
+                    <li><span className={styles.firstLabel}>X</span>{livingLabels[0]}</li>
+                    <li><span className={styles.secondLabel}>X</span>{livingLabels[1]}</li>
+                    <li><span className={styles.thirdLabel}>X</span>{livingLabels[2]}</li>
+                    <li><span className={styles.fourthLabel}>X</span>{livingLabels[3]}</li>
+                    <li><span className={styles.fifthLabel}>X</span>{livingLabels[4]}</li>
+                    <li><span className={styles.sixthLabel}>X</span>{livingLabels[5]}</li>
+                    <li><span className={styles.incomeLabel}>X</span>{livingLabels[6]}</li>
                 </ul>
         </div>
         <div className={styles.chartwidth}>
             <Doughnut data={props.dataTransport} />
             <ul className='legend'>
-                    <li><span className={styles.firstLabel}>X</span>public transport</li>
-                    <li><span className={styles.secondLabel}>X</span>fuel</li>
-                    <li><span className={styles.fifthLabel}>X</span>car maintenance / leasing</li>
-                    <li><span className={styles.sixthLabel}>X</span>other transport costs</li>
-                    <li><span className={styles.incomeLabel}>X</span>Income</li>
+                    <li><span className={styles.firstLabel}>X</span>{transportLabels[0]}</li>
+                    <li><span className={styles.secondLabel}>X</span>{transportLabels[1]}</li>
+                    <li><span className={styles.fifthLabel}>X</span>{transportLabels[2]}</li>
+                    <li><span className={styles.sixthLabel}>X</span>{transportLabels[3]}</li>
+                    <li><span className={styles.incomeLabel}>X</span>{transportLabels[4]}</li>
                 </ul>
         </div>
         <div className={styles.chartwidth}>
             <Doughnut data={props.dataHobby} />
             <ul className='legend'>
-                    <li><span className={styles.firstLabel}>X</span>bars / restaurants / cafes</li>
-                    <li><span className={styles.secondLabel}>X</span>hairdresser / cosmetics</li>
-                    <li><span className={styles.thirdLabel}>X</span>wellness / self care</li>
-                    <li><span className={styles.fourthLabel}>X</span>doctor / medicine</li>
-                    <li><span className={styles.fifthLabel}>X</span>sport</li>
-                    <li><span className={styles.sixthLabel}>X</span>other hobby costs</li>
-                    <li><span className={styles.incomeLabel}>X</span>Income</li>
+                    <li><span className={styles.firstLabel}>X</span>{hobbyLabels[0]}</li>
+                    <li><span className={styles.secondLabel}>X</span>{hobbyLabels[1]}</li>
+                    <li><span className={styles.thirdLabel}>X</span>{hobbyLabels[2]}</li>
+                    <li><span className={styles.fourthLabel}>X</span>{hobbyLabels[3]}</li>
+                    <li><span className={styles.fifthLabel}>X</span>{hobbyLabels[4]}</li>
+                    <li><span className={styles.sixthLabel}>X</span>{hobbyLabels[5]}</li>
+                    <li><span className={styles.incomeLabel}>X</span>{hobbyLabels[6]}</li>
                 </ul>
         </div>
     </div>
