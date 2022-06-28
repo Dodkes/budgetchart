@@ -4,72 +4,62 @@ import { FcInTransit } from "react-icons/fc";
 import DoughnutChart from './chart'
 import {useState} from 'react'
 
-let livingData = [0, 0, 0, 0, 0, 0, 0]
+let livingData, hobbyData
+livingData  = [0, 0, 0, 0, 0, 0, 0]
+hobbyData = [0, 0, 0, 0, 0, 0, 0]
 let transportData = [0, 0, 0, 0, 0]
-let hobbyData = [0, 0, 0, 0, 0 ,0 , 0]
-let livingCosts = 0
-let transportCosts = 0
-let hobbyCosts = 0
-let income
+let livingCosts, transportCosts, hobbyCosts, income
+livingCosts = transportCosts = hobbyCosts = income = 0
 const livingLabels = ['rental', 'TV / phone / internet', 'maintenance / house modernisation', 'savings / investings / mortgage', 'grocery', 'other living costs', 'income' ]
 const transportLabels = ['public transport', 'fuel', 'car maintenance / leasing', 'other transport costs', 'income']
 const hobbyLabels = ['bars / restaurants / cafes', 'hairdresser / cosmetics', 'wellness / self care', 'doctor / medicine', 'sport', 'other hobby costs', 'income']
 
 function InputItem(props){
     function handleChange(event){
-
         let activeInput
-        if (event.target.value === '' || event.target.value < 0) {
-            activeInput = 0
-        } else {
-            activeInput = event.target.value
-        }
-
+        (event.target.value === '' || event.target.value < 0) ? activeInput = 0 : activeInput = event.target.value
+        
         switch(event.target.id){
-            case 'rental': livingData[0] = parseInt(activeInput) 
+            case livingLabels[0]: livingData[0] = parseInt(activeInput) 
                 break;
-            case 'TV / phone / internet': livingData[1] = parseInt(activeInput)
+            case livingLabels[1]: livingData[1] = parseInt(activeInput)
                 break;
-            case 'maintenance / house modernisation': livingData[2] = parseInt(activeInput)
+            case livingLabels[2]: livingData[2] = parseInt(activeInput)
                 break;
-            case 'savings / investings / mortgage': livingData[3] = parseInt(activeInput)
+            case livingLabels[3]: livingData[3] = parseInt(activeInput)
                 break;
-            case 'grocery': livingData[4] = parseInt(activeInput)
+            case livingLabels[4]: livingData[4] = parseInt(activeInput)
                 break;
-            case 'other living costs': livingData[5] = parseInt(activeInput)
+            case livingLabels[5]: livingData[5] = parseInt(activeInput)
                 break;
-            case 'public transport': transportData[0] = parseInt(activeInput)
+            case transportLabels[0]: transportData[0] = parseInt(activeInput)
                 break;
-            case 'fuel': transportData[1] = parseInt(activeInput)
+            case transportLabels[1]: transportData[1] = parseInt(activeInput)
                 break;
-            case 'car maintenance / leasing': transportData[2] = parseInt(activeInput)
+            case transportLabels[2]: transportData[2] = parseInt(activeInput)
                 break;
-            case 'other transport costs': transportData[3] = parseInt(activeInput)
+            case transportLabels[3]: transportData[3] = parseInt(activeInput)
                 break;
-            case 'bars / restaurants / cafes': hobbyData[0] = parseInt(activeInput)
+            case hobbyLabels[0]: hobbyData[0] = parseInt(activeInput)
                 break;
-            case 'hairdresser / cosmetics': hobbyData[1] = parseInt(activeInput)
+            case hobbyLabels[1]: hobbyData[1] = parseInt(activeInput)
                 break;
-            case 'wellness / self care': hobbyData[2] = parseInt(activeInput)
+            case hobbyLabels[2]: hobbyData[2] = parseInt(activeInput)
                 break;
-            case 'doctor / medicine': hobbyData[3] = parseInt(activeInput)
+            case hobbyLabels[3]: hobbyData[3] = parseInt(activeInput)
                 break;
-            case 'sport': hobbyData[4] = parseInt(activeInput)
+            case hobbyLabels[4]: hobbyData[4] = parseInt(activeInput)
                 break;
-            case 'other hobby costs': hobbyData[5] = parseInt(activeInput)
+            case hobbyLabels[5]: hobbyData[5] = parseInt(activeInput)
                 break;
             case 'Income': income = parseInt(activeInput)
                 break;
             default:;
         }      
 
-
         updateCosts()
-
         function updateCosts() {
-        livingCosts = 0
-        hobbyCosts = 0
-        transportCosts = 0
+        livingCosts = hobbyCosts = transportCosts = 0
 
         for (let i = 0; i < livingData.length - 1; i++) {
                 livingCosts += livingData[i]
@@ -80,24 +70,9 @@ function InputItem(props){
             transportCosts += transportData[i]
         }
 
-        if (transportCosts > income) {
-            transportData[4] = 0
-        } else {
-            transportData[4] = income - transportCosts
-        }
-
-        if (hobbyCosts > income) {
-            hobbyData[6] = 0
-        } else {
-            hobbyData[6] = income - hobbyCosts
-        }
-
-        
-        if (livingCosts > income){
-            livingData[6] = 0
-        } else {
-            livingData[6] = income - livingCosts
-        }
+        livingCosts > income ? livingData[6] = 0 : livingData[6] = income - livingCosts
+        transportCosts > income ? transportData[4] = 0 : transportData[4] = income - transportCosts
+        hobbyCosts > income ? hobbyData[6] = 0 : hobbyData[6] = income - hobbyCosts
     }
         props.myFunc()
     }

@@ -150,3 +150,24 @@ span{
   margin-right: 5px;
   border: 1px solid black;
 }
+
+/*SCROLLBAR STYLYNG*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e2caf8; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8A2BE2; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
