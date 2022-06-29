@@ -1,6 +1,6 @@
-import { FcHome } from "react-icons/fc"; //define icon here, then add a component
+import { FcHome } from "react-icons/fc"; 
 import { FcPuzzle } from "react-icons/fc";
-import { FcInTransit } from "react-icons/fc";
+import { FcInTransit } from "react-icons/fc"; 
 import DoughnutChart from './chart'
 import { useState } from 'react'
 
@@ -29,44 +29,16 @@ function InputItem(props){
         let activeInput
         (event.target.value === '' || event.target.value < 0) ? activeInput = 0 : activeInput = event.target.value
         
-        switch(event.target.id){
-            case livingLabels[0]: livingData[0] = parseInt(activeInput) 
-                break;
-            case livingLabels[1]: livingData[1] = parseInt(activeInput)
-                break;
-            case livingLabels[2]: livingData[2] = parseInt(activeInput)
-                break;
-            case livingLabels[3]: livingData[3] = parseInt(activeInput)
-                break;
-            case livingLabels[4]: livingData[4] = parseInt(activeInput)
-                break;
-            case livingLabels[5]: livingData[5] = parseInt(activeInput)
-                break;
-            case transportLabels[0]: transportData[0] = parseInt(activeInput)
-                break;
-            case transportLabels[1]: transportData[1] = parseInt(activeInput)
-                break;
-            case transportLabels[2]: transportData[2] = parseInt(activeInput)
-                break;
-            case transportLabels[3]: transportData[3] = parseInt(activeInput)
-                break;
-            case hobbyLabels[0]: hobbyData[0] = parseInt(activeInput)
-                break;
-            case hobbyLabels[1]: hobbyData[1] = parseInt(activeInput)
-                break;
-            case hobbyLabels[2]: hobbyData[2] = parseInt(activeInput)
-                break;
-            case hobbyLabels[3]: hobbyData[3] = parseInt(activeInput)
-                break;
-            case hobbyLabels[4]: hobbyData[4] = parseInt(activeInput)
-                break;
-            case hobbyLabels[5]: hobbyData[5] = parseInt(activeInput)
-                break;
-            case livingLabels[6]: income = parseInt(activeInput)
-                break;
-            default:;
-        }      
-        console.log(event.target.id)
+        let livingIndex = livingLabels.indexOf(event.target.id)
+        let transportIndex = transportLabels.indexOf(event.target.id)
+        let hobbyIndex = hobbyLabels.indexOf(event.target.id)
+
+        if ( livingIndex >= 0 ) { livingData[livingIndex] = parseInt(activeInput) } 
+        else if ( transportIndex >= 0 ) { transportData[transportIndex] = parseInt(activeInput) } 
+        else if ( hobbyIndex >= 0 ) { hobbyData[hobbyIndex] = parseInt(activeInput) }
+
+        if (event.target.id === livingLabels[6]) { income = parseInt(activeInput) }     
+
         updateCosts()
         function updateCosts() {
         livingCosts = hobbyCosts = transportCosts = 0
