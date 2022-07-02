@@ -10,11 +10,10 @@
 }
 
 .chartwidth{
-    width: 40vh;
+    width: 10%;
     margin: 0 12vh 0 12vh;
     display: inline-block;
 }
-
 
 .firstLabel{
     background-color: #00FFFF;

@@ -1,6 +1,6 @@
-import { FcHome } from "react-icons/fc"; 
-import { FcPuzzle } from "react-icons/fc";
-import { FcInTransit } from "react-icons/fc"; 
+import { FcHome } from "react-icons/fc"; //icon
+import { FcPuzzle } from "react-icons/fc"; //icon
+import { FcInTransit } from "react-icons/fc"; //icon
 import DoughnutChart from './chart'
 import { useState } from 'react'
 
@@ -11,8 +11,8 @@ hobbyData = [0, 0, 0, 0, 0, 0, 0]
 let transportData = [0, 0, 0, 0, 0]
 
 //chart costs variables -> means chart data computed
-let livingCosts, transportCosts, hobbyCosts, income
-livingCosts = transportCosts = hobbyCosts = income = 0
+let livingCosts, transportCosts, hobbyCosts, income, netIncome, totalCosts
+livingCosts = transportCosts = hobbyCosts = income = netIncome = totalCosts = 0
 
 //chart colors variables
 const colorsArray = ['#00FFFF','#b2ffff', '#f2ffff', '#e2caf8', '#bf8aef', '#8A2BE2', '#333333']
@@ -55,6 +55,10 @@ function InputItem(props){
         livingCosts > income ? livingData[6] = 0 : livingData[6] = income - livingCosts
         transportCosts > income ? transportData[4] = 0 : transportData[4] = income - transportCosts
         hobbyCosts > income ? hobbyData[6] = 0 : hobbyData[6] = income - hobbyCosts
+        
+        totalCosts = livingCosts + transportCosts + hobbyCosts
+        //console.log(totalCosts)
+        totalCosts > income ? netIncome = 0 : netIncome = income - totalCosts
     }
         props.myFunc()
     }
@@ -98,6 +102,16 @@ function Input(){
             }],
     })
 
+    const [dataSummary, setDataSummary] = useState({
+        labels: [ 'total costs', 'net income'],
+        datasets: [{
+                data: [totalCosts, netIncome],
+                backgroundColor: [cyan, black],
+                borderColor: 'black',
+                borderWidth: 1,
+            }],      
+    })
+
     const updateChart = () => {
         setDataLiving({
             labels: livingLabels,
@@ -111,6 +125,10 @@ function Input(){
         setDataHobby({
             labels: hobbyLabels,
             datasets: [{data: hobbyData}],
+        })
+        setDataSummary({
+            labels: [ 'total costs', 'net income'],
+            datasets: [{data: [totalCosts, netIncome]}]
         })
     }
 
@@ -148,7 +166,7 @@ function Input(){
                 <p></p>{/* emty element for grid space*/}
                 <InputItem title={hobbyLabels[5]} myFunc={updateChart} />
             </form>
-            <DoughnutChart dataLiving={dataLiving} dataTransport={dataTransport} dataHobby={dataHobby}/>
+            <DoughnutChart dataLiving={dataLiving} dataTransport={dataTransport} dataHobby={dataHobby} dataSummary={dataSummary}/>
         </div>
     )
 }
