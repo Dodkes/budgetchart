@@ -9,7 +9,6 @@ function DoughnutChart(props){
 
     return(            
     <div className={styles.chartContainer}>
-        {/* <h1 className={styles.color}>Doughnut Chart - unanimated</h1> */}
         <div className={styles.chartwidth}>
             <Doughnut data={props.dataLiving} />
                 <ul className='legend'>
@@ -46,16 +45,16 @@ function DoughnutChart(props){
         </div>
         <div className={styles.chartwidth}>
             <Pie data={props.dataSummary} />
-            <ul className='legend'>
-                <li><span className={styles.incomeLabel}>X</span>net income</li>
-                <li><span className={styles.firstLabel}>X</span>total costs</li>
-            </ul>
+                <ul className='legend'>
+                        <li className={styles.junk}>x</li>
+                        <li className={styles.junk}>x</li>
+                        <li className={styles.junk}>x</li>
+                        <li><span className={styles.incomeLabel}>X</span>net income</li>
+                        <li><span className={styles.firstLabel}>X</span>total costs</li>
+                </ul>
         </div>
     </div>
     )
 }
 
 export default DoughnutChart
-
-//OPRAVA ->
-//Nevidno tooltip pretoze chartwidth je prilis mala

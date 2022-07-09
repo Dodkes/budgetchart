@@ -135,16 +135,18 @@ function Input(){
     return(
         <div className="jqueryContainer">
             <div className="income">
-                <InputItem title={livingLabels[6]} myFunc={updateChart} />
+                <div className="income-child">
+                    <InputItem title={livingLabels[6]} myFunc={updateChart} />
+                </div>
             </div>
             <form className="grid-container">
-                <div className="icon-container">
+                <div className="icon-container" title="living costs">
                     <FcHome className="home-icon" />
                 </div>
-                <div className="icon-container">
+                <div className="icon-container" title="transport costs">
                     <FcInTransit className="transport-icon" />
                 </div>
-                <div className="icon-container">
+                <div className="icon-container" title="hobby costs">
                     <FcPuzzle className="puzzle-icon" />
                 </div>
                 <InputItem title={livingLabels[0]} myFunc={updateChart}/>

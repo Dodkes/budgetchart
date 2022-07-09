@@ -1,18 +1,16 @@
-.color{
-    color: salmon;
-    text-shadow: 2px 2px 2px black;
-}
 
 .chartContainer{
-    margin-top: 2%;
-    width: 100%;
+    margin-top: 1rem;
+    max-width: 100%;
     text-align: center;
 }
 
 .chartwidth{
-    width: 10%;
-    margin: 0 12vh 0 12vh;
+    margin: 0 5em;
+    width: 15%;
     display: inline-block;
+    align-items: center;
+    top: 0;
 }
 
 .firstLabel{
@@ -48,4 +46,8 @@
 .incomeLabel {
     background-color: #333333;
     color: #333333;
+}
+
+.junk{
+    visibility: hidden;
 }
