@@ -1,43 +1,64 @@
 @media (max-width: 1480px){
-  input {
-    font-size: 2vw;
-  }
+
 }
 
 @media (max-width: 1300px){
       input {
+        font-size: 1.2em;
         height: 3vw;
-        font-size: 2vw;
       }
       .inputName {
         font-size: 1em;
       }
       ::placeholder {
-        font-size: 0.5em;
+        font-size: 0.8em;
       }
+      .grid-item, .inputName, input {
+        width: 25vw;
+      }
+      body {
+        background-color: gold;
+      }
+      
 }
 
 @media (max-width: 1080px){
-
+  .grid-item, .inputName, input {
+    width: 27vw;
+  }
 } 
 
 @media (max-width: 900px){
     ::placeholder {
-        font-size: 0.8em;
+        font-size: 1em;
       }
     .inputName {
         font-size: 0.8em;
       }
-
+      .grid-item, .inputName, input {
+        width: 29vw;
+      }
 }
 
 @media (max-width: 720px){
-
+  body {
+    background-color: aqua;
+  }
+  ::placeholder {
+    font-size: 1em;
+  }
+  .grid-container {
+    gap: 10px 10px;
+  }
 }
 
 @media (max-width: 600px){
     input {
         height: 6vw;
         font-size: 1em;
+      }
+
+      .inputName {
+        font-size: 0.7em;
       }
 }

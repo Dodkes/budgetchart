@@ -4,7 +4,7 @@ import $ from 'jquery' //import jquery
 
 $(()=>{ //on document ready
   $('.jqueryContainer, .incomeContainer').slideDown(1000, ()=>{
-    $('.firstCircle, .secondCircle').fadeIn(1000)
+    $('.firstCircle, .secondCircleContainer').fadeIn(1000)
   })
 })
 

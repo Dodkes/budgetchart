@@ -40,8 +40,17 @@ input:hover, input:focus{
   box-shadow: 2px 2px 5px black;
 }
 
-.secondCircle{
+.secondCircleContainer {
   display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52vw;
+  height: 32vw;
+  overflow: hidden;
+}
+
+.secondCircle{
   position: absolute;
   top: -30vw;
   right: -10vw;
@@ -50,6 +59,7 @@ input:hover, input:focus{
   border-radius: 100%;
   background-color: aqua;
   box-shadow: -2px 2px 5px black;
+  object-fit: cover;
 }
 
 .jqueryContainer{
@@ -95,7 +105,7 @@ input{
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 2px 2px 10px black;
   outline: none;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .home-icon, .puzzle-icon, .transport-icon{
