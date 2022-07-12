@@ -15,7 +15,7 @@ let livingCosts, transportCosts, hobbyCosts, income, netIncome, totalCosts
 livingCosts = transportCosts = hobbyCosts = income = netIncome = totalCosts = 0
 
 //chart colors variables
-const colorsArray = ['#00FFFF','#b2ffff', '#f2ffff', '#e2caf8', '#bf8aef', '#8A2BE2', '#333333']
+const colorsArray = ['#00FFFF','#b2ffff', '#f2ffff', '#e2caf8', '#bf8aef', '#8A2BE2', '#1a1a1a']
 const [cyan, midCyan, lightCyan, lightPurple, midPurple, purple, black] = colorsArray
 
 //whole app labels -> means chart, inputs, legend

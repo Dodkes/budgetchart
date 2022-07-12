@@ -16,15 +16,17 @@
       .grid-item, .inputName, input {
         width: 25vw;
       }
-      body {
-        background-color: gold;
+      .income-child{
+        transform: translate(-62%, 0);
       }
-      
 }
 
 @media (max-width: 1080px){
   .grid-item, .inputName, input {
     width: 27vw;
+  }
+  .income-child{
+    transform: translate(-67%, 0);
   }
 } 
 
@@ -38,12 +40,12 @@
       .grid-item, .inputName, input {
         width: 29vw;
       }
+      .income-child{
+        transform: translate(-71%, 0);
+      }
 }
 
 @media (max-width: 720px){
-  body {
-    background-color: aqua;
-  }
   ::placeholder {
     font-size: 1em;
   }

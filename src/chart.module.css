@@ -5,9 +5,13 @@
     text-align: center;
 }
 
+.chartDoubleContainer{
+    display: inline-block;
+}
+
 .chartwidth{
-    margin: 0 5em;
-    width: 15%;
+    margin: 0 2em;
+    width: 15vw;
     display: inline-block;
     align-items: center;
     top: 0;
@@ -43,11 +47,49 @@
     color: #8A2BE2;
 }
 
-.incomeLabel {
-    background-color: #333333;
-    color: #333333;
+.incomeLabel{
+    background-color: #1a1a1a;
+    color: #1a1a1a;
 }
 
 .junk{
     visibility: hidden;
+}
+
+.legend{
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    font-size: 0.8vw;
+    color: white;
+}
+
+@media (max-width: 1480px){
+    .chartDoubleContainer{
+        display: block;
+    }
+
+    .chartwidth{
+        width: 19em;
+        margin: 0 5vw;
+    }
+}
+
+@media (max-width: 1200px){
+    .legend{
+        font-size: 1vw;
+    }
+}
+
+@media (max-width: 1080px){
+    .legend{
+        font-size: 1.5vw;
+    }
+}
+
+@media (max-width: 600px){
+    .legend{
+        font-size: 2.5vw;
+    }
 }
